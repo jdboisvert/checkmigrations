@@ -1,4 +1,5 @@
 use clap::Parser;
+mod checkmigrations;
 
 #[derive(Parser)]
 struct Cli {
@@ -10,23 +11,19 @@ struct Cli {
 
 const DJANGO: &str = "django";
 
-
 fn main() {
     let args = Cli::parse();
-    println!("framework: {}", args.framework);
-    println!("path_to_app: {}", args.path_to_app.display());
 
     let framework = args.framework; 
     let path = args.path_to_app;
 
     match framework.as_str() {
         DJANGO => {
-            println!("django was selected!");
-            println!("path: {}", path.display());
-            // checkmigrations::django::check_migrations(path);
+            checkmigrations::django::lib::check_migrations(path.to_str().unwrap());
         },
         _ => {
             println!("unknown framework");
+            std::process::exit(1);
         }
     }
 
