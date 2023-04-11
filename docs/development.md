@@ -1,7 +1,7 @@
 # Getting Started
 
 ## Prerequisites
-1. Install Rust and Cargo (https://www.rust-lang.org/tools/install)
+- Install Rust and Cargo (https://www.rust-lang.org/tools/install)
 
 ## Building
 1. Clone the repository
@@ -10,8 +10,10 @@
 
 
 ## Testing
-1. Run `cargo test` to run the tests
+- Run `cargo test` to run the tests
 
+## Formatting
+- Run `cargo fmt` to format the code
 
 ## To help with local testing
 ### Django Project testing
