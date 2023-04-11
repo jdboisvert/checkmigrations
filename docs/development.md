@@ -18,6 +18,9 @@
 ## Linting
 - Run `cargo clippy` to lint the code
 
+## Releasing
+- Run `cargo build --release` to release a new version
+
 ## To help with local testing
 ### Django Project testing
 It is suggested to create a `migrations` directory and to prefill if with files such as 0001_initial.py and other files to help with testing (ex: `touch migrations/0001_initial.py`). This will help with testing the detection of migrations for Django and the directory should already be ignored by git (please do not commit this directory).
