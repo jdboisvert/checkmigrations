@@ -14,7 +14,10 @@ fn get_migration_files(path: &str) -> Vec<String> {
                 match entry_result {
                     Ok(entry) => {
                         let file_name = entry.file_name().into_string().unwrap();
-                        let prefix = file_name.split(MIGRATION_FILE_NAME_DELIMITER).next().unwrap();
+                        let prefix = file_name
+                            .split(MIGRATION_FILE_NAME_DELIMITER)
+                            .next()
+                            .unwrap();
 
                         migration_files.push(prefix.to_owned()); // Clone the prefix string
                     }
@@ -39,8 +42,10 @@ pub fn check_migrations(path: &str) -> Result<(), String> {
 
     let migrations_dir_path = format!("{}/{}", path, DJANGO_MIGRATION_DIR);
     if !std::path::Path::new(&migrations_dir_path).exists() {
-        return Err(format!("No migrations directory found at path: {}", migrations_dir_path));
-
+        return Err(format!(
+            "No migrations directory found at path: {}",
+            migrations_dir_path
+        ));
     }
 
     // Check if the migrations directory has any duplicate migration files (e.g. 0001 prefix for multiple files)

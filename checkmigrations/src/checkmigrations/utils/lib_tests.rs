@@ -1,6 +1,5 @@
 use crate::checkmigrations::utils::lib::has_duplicates;
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -30,6 +29,9 @@ mod tests {
     fn single_element() {
         let input = vec!["0001"];
         let has_dupes = has_duplicates(&input);
-        assert_eq!(has_dupes, false, "A single element input should have no duplicates");
+        assert_eq!(
+            has_dupes, false,
+            "A single element input should have no duplicates"
+        );
     }
 }
