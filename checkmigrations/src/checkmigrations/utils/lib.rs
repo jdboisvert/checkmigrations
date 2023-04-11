@@ -11,3 +11,7 @@ pub fn has_duplicates<T: std::hash::Hash + std::cmp::Eq>(vec: &[T]) -> bool {
 
     false
 }
+
+#[cfg(test)]
+#[path = "./lib_tests.rs"]
+mod lib_tests;

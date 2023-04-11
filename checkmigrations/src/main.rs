@@ -19,7 +19,13 @@ fn main() {
 
     match framework.as_str() {
         DJANGO => {
-            checkmigrations::django::lib::check_migrations(path.to_str().unwrap());
+            match checkmigrations::django::lib::check_migrations(path.to_str().unwrap()) {
+                Ok(()) => println!("No duplicate migration files found"),
+                Err(err) => {
+                    eprintln!("{}", err);
+                    std::process::exit(1);
+                }
+            }
         },
         _ => {
             println!("unknown framework");
