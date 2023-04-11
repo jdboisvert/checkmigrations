@@ -6,7 +6,6 @@ const MIGRATION_FILE_NAME_DELIMITER: &str = "_";
 const DJANGO_MIGRATION_DIR: &str = "migrations";
 
 fn get_migration_files(path: &str) -> Vec<String> {
-    println!("Getting migration files for Django app at path: {}", path);
     let mut migration_files = Vec::new();
     match fs::read_dir(path) {
         Ok(entries) => {
